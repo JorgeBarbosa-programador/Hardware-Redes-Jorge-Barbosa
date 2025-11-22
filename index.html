@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procesadores: Guía Completa - Jorge Barbosa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(90deg, #1a237e, #3949ab);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        header h1 { margin: 0; font-size: 2.8em; text-shadow: 0 0 15px #ffd700; }
+        header p { font-size: 1.4em; margin-top: 10px; }
+
+        nav {
+            background: rgba(0,0,0,0.7);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            margin: 0; padding: 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            margin: 5px;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            background: #ffd700;
+            color: #1a237e;
+            transform: translateY(-3px);
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Laboratorio Virtual Mejorado */
+        .lab-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        @media (max-width: 900px) {
+            .lab-container { grid-template-columns: 1fr; }
+        }
+
+        .control-panel {
+            background: rgba(0,0,0,0.3);
+            padding: 25px;
+            border-radius: 15px;
+        }
+        .control-panel h3 {
+            color: #ffd700;
+            margin-top: 0;
+        }
+        select, button, input[type="range"] {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 8px;
+            border: none;
+            background: #333;
+            color: #fff;
+            font-size: 16px;
+        }
+        button {
+            background: #ffd700;
+            color: #1a237e;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { background: #ffed4e; transform: scale(1.05); }
+
+        .visualizador {
+            background: #111;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cpu-box {
+            width: 200px;
+            height: 200px;
+            margin: 30px auto;
+            background: linear-gradient(45deg, #1a237e, #3949ab);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            font-size: 1.4em;
+            box-shadow: 0 0 30px rgba(255,215,0,0.6);
+            transition: all 0.5s;
+            animation: pulse 4s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255,215,0,0.4); }
+            50% { box-shadow: 0 0 50px rgba(255,215,0,0.9); }
+        }
+
+        .stats {
+            margin-top: 20px;
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+        }
+        .core-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin: 15px 0;
+        }
+        .core {
+            width: 40px; height: 40px;
+            background: #333;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .core.active {
+            background: #ffd700;
+            box-shadow: 0 0 15px #ffd700;
+        }
+
+        footer {
+            background: #000;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Guía Definitiva de Procesadores</h1>
+        <p>Desarrollado por: Jorge Barbosa</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#tipos">Tipos</a></li>
+            <li><a href="#marcas">Marcas</a></li>
+            <li><a href="#laboratorio">Laboratorio Virtual</a></li>
+        </ul>
+    </nav>
+
+    <!-- Secciones anteriores (mantengo solo el laboratorio mejorado por espacio) -->
+
+    <section id="laboratorio">
+        <h2>Laboratorio Virtual Interactivo de Procesadores</h2>
+        <p>El propósito de este trabajo es analizar los procesadores modernos, sus 
+        características principales, tipos, marcas, funcionalidades y precios. 
+        Además, busca ofrecer una comprensión clara sobre cómo influyen en el 
+        rendimiento de un computador y su importancia dentro del hardware.</p>
+        <p>¡Experimenta en tiempo real cómo cambian las características de un procesador según tus elecciones!</p>
+
+        <div class="lab-container">
+            <!-- Panel de Control -->
+            <div class="control-panel">
+                <h3>Configura tu Procesador</h3>
+                
+                <label>Tipo de Procesador</label>
+                <select id="tipo">
+                    <option value="cpu">CPU de Escritorio</option>
+                    <option value="gpu">GPU Dedicada</option>
+                    <option value="apu">APU (CPU + GPU)</option>
+                    <option value="mobile">SoC Móvil (Smartphone)</option>
+                </select>
+
+                <label>Marca</label>
+                <select id="marca">
+                    <option value="intel">Intel</option>
+                    <option value="amd">AMD</option>
+                    <option value="apple">Apple Silicon</option>
+                    <option value="qualcomm">Qualcomm</option>
+                </select>
+
+                <label>Núcleos Físicos: <span id="nucleos-val">8</span></label>
+                <input type="range" id="nucleos" min="2" max="128" value="8">
+
+                <label>Hilos (Threads): <span id="hilos-val">16</span></label>
+                <input type="range" id="hilos" min="2" max="256" value="16">
+
+                <label>Frecuencia Base (GHz): <span id="freq-val">3.6</span></label>
+                <input type="range" id="frecuencia" min="1.5" max="6.0" step="0.1" value="3.6">
+
+                <button onclick="actualizarCPU()">¡CONSTRUIR PROCESADOR!</button>
+            </div>
+
+            <!-- Visualizador 3D-like -->
+            <div class="visualizador">
+                <h3 id="nombre-cpu" style="color:#ffd700;">Intel Core i9-13900K</h3>
+                <div class="cpu-box" id="cpu-visual">
+                    <div style="font-size:3em;">Chip</div>
+                    <div id="core-count">8 Cores</div>
+                </div>
+
+                <div class="core-grid" id="core-grid"></div>
+
+                <div class="stats">
+                    <strong>Rendimiento estimado:</strong> <span id="rendimiento">95%</span><br>
+                    <strong>Consumo TDP:</strong> <span id="tdp">125W</span><br>
+                    <strong>Temperatura actual:</strong> <span id="temp">48°C</span><br>
+                    <strong>Precio aproximado:</strong> <span id="precio">$589 USD</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Jorge Barbosa • Laboratorio Virtual Interactivo de Procesadores</p>
+    </footer>
+
+    <script>
+        // Base de datos simulada de procesadores reales
+        const procesadoresDB = {
+            intel: { cpu: "Core i9-14900K", gpu: "Arc A770", apu: "No tiene", mobile: "No tiene" },
+            amd:   { cpu: "Ryzen 9 9950X",  gpu: "Radeon RX 7900 XTX", apu: "Ryzen 7 7840HS", mobile: "No tiene" },
+            apple: { cpu: "M3 Max", mobile: "A18 Pro", apu: "M3", gpu: "Integrada en M3" },
+            qualcomm: { mobile: "Snapdragon 8 Gen 4", cpu: "No tiene", gpu: "Adreno 830", apu: "No tiene" }
+        };
+
+        function actualizarCPU() {
+            const tipo = document.getElementById("tipo").value;
+            const marca = document.getElementById("marca").value;
+            const nucleos = parseInt(document.getElementById("nucleos").value);
+            const hilos = parseInt(document.getElementById("hilos").value);
+            const freq = parseFloat(document.getElementById("frecuencia").value);
+
+            // Actualizar nombre
+            let nombre = procesadoresDB[marca][tipo] || "Procesador Personalizado";
+            if (nombre === "No tiene") nombre = `${marca.toUpperCase()} Custom ${tipo.toUpperCase()}`;
+            document.getElementById("nombre-cpu").textContent = nombre;
+
+            // Visualización de núcleos
+            const grid = document.getElementById("core-grid");
+            grid.innerHTML = "";
+            for(let i = 0; i < Math.min(nucleos, 64); i++) {
+                const core = document.createElement("div");
+                core.className = "core active";
+                core.style.animationDelay = `${i*0.05}s`;
+                grid.appendChild(core);
+            }
+            document.getElementById("core-count").textContent = `${nucleos} Cores`;
+
+            // Cálculos simulados
+            const rendimiento = Math.min(99, Math.round((nucleos * freq * (hilos/nucleos)) / 2));
+            const tdp = tipo === "mobile" ? Math.round(nucleos * 4 + 15) : Math.round(nucleos * 8 + freq*20);
+            const precio = tipo === "mobile" ? 299 + nucleos*15 : 150 + nucleos*25 + freq*80;
+
+            document.getElementById("rendimiento").textContent = rendimiento + "%";
+            document.getElementById("tdp").textContent = tdp + "W";
+            document.getElementById("precio").textContent = "$" + precio;
+
+            // Efecto visual de temperatura
+            const temp = 35 + Math.round(rendimiento / 3);
+            document.getElementById("temp").textContent = temp + "°C";
+
+            // Animación del CPU
+            const cpuBox = document.getElementById("cpu-visual");
+            cpuBox.style.transform = "scale(1.1)";
+            setTimeout(() => cpuBox.style.transform = "scale(1)", 300);
+        }
+
+        // Actualizar valores en tiempo real de los sliders
+        document.getElementById("nucleos").addEventListener("input", function() {
+            document.getElementById("nucleos-val").textContent = this.value;
+        });
+        document.getElementById("hilos").addEventListener("input", function() {
+            document.getElementById("hilos-val").textContent = this.value;
+        });
+        document.getElementById("frecuencia").addEventListener("input", function() {
+            document.getElementById("freq-val").textContent = this.value;
+        });
+
+        // Actualización automática al cambiar marca/tipo
+        document.getElementById("tipo").addEventListener("change", actualizarCPU);
+        document.getElementById("marca").addEventListener("change", actualizarCPU);
+
+        // Primera carga
+        actualizarCPU();
+    </script>
+<script src='https://cdn.jotfor.ms/agent/embedjs/019aa9ce5b6d73efae0627270cb87b5d22de/embed.js'>
+</script>
+</body>
+</html>
